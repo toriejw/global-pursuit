@@ -21,4 +21,11 @@ class Cart
   def remove(trip)
     trips.delete(trip.id.to_s)
   end
+
+  def ordered_pursuits
+    trips.map do |pursuit_id, travellers|
+      pursuit = Pursuit.find(pursuit_id.to_i)
+      OrderedPursuit.new(pursuit_id, travellers, pursuit.price)
+    end
+  end
 end
