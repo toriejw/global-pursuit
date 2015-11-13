@@ -1,9 +1,6 @@
 class PursuitsController < ApplicationController
-  def index
-    @activities = Activity.all
-  end
 
   def show
-    @pursuit = Pursuit.find(params[:id])
+    @pursuit = Pursuit.find_by(slug)
   end
 end
